@@ -5,12 +5,12 @@ const load = System.import("{{ resourceUrl }}");
 
 
 {% for componentName in componentNames %}
-  export const {{ componentName }} = (props) => {
+  export const {{ componentName }} = (props:any) => {
   const [loaded, setLoaded] = useState(false);
   const ref = useRef();
 
   useCustomLayoutEffect(() => {
-    load.then((mod) => {
+    load.then((mod:any) => {
       ref.current = mod.{{ componentName }};
       setLoaded(true);
     });
